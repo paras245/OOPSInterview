@@ -14,6 +14,10 @@ namespace OOPSInterview
             e1.name = "PARAS";
             e1.address = "Mumbai";
             e1.Validate();
+
+            //Polymorpshism
+            Employee e2 = new Manager();
+            e2 = new Supervisor();
         }
 
         //Class
@@ -42,50 +46,60 @@ namespace OOPSInterview
 
             }
 
-            //Overloading   //Compile Time Polymorphism
-            private void ValidateName(int id)
-            {
-
-            }
-
-            private void ValidateName(int id , string name)
-            {
-
-            }
-
-            private void ValidateName(int id,string name,string address)
-            {
-
-            }
-
+            
             //Encapsulation & Astraction
             private void ValidateAddress()
             {
 
             }
 
-            //Inheritance
-            public class Manager : Employee
+        }
+        //Inheritance
+        public class Manager : Employee
+        {
+            public string ManagerTask { get; set; }
+
+            //Overriding //Run Time Polymorphsim
+            public override void Validate()
             {
-                public string ManagerTask {get; set; }
-
-                //Overriding //Run Time Polymorphsim
-                public override void Validate()
-                {
-                    //Your Overriden Logic
-                }
-
-                //Overriding //Run Time Polymorphism
-                public override void age()
-                {
-                    //Your override logic here
-                }
+                //Your Overriden Logic
+            }
 
 
-
+            //Overloading   //Compile Time Polymorphism   //Static Polymorpshism
+            public void ValidateName(int id)
+            {
 
             }
+
+            public void ValidateName(int id, string name)
+            {
+
+            }
+
+            public void ValidateName(int id, string name, string address)
+            {
+
+            }
+
+
+            //Overriding //Run Time Polymorphism   //Dynamic Polymorpshism
+            public override void age()
+            {
+                //Your override logic here
+            }
+
+
+
+
         }
+
+        //Class Inheritance
+        public class Supervisor : Employee
+        {
+            //Some properties
+        }
+
 
     }
 }
